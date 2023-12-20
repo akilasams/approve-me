@@ -1,0 +1,29 @@
+%btn {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: bold;
+  color: $aiesec-offwhite;
+
+  &:hover {
+    transform: scale(0.98);
+  }
+}
+
+.btn-blue {
+  @extend %btn;
+  background-color: $aiesec-blue;
+}
+
+.btn-yellow {
+  @extend %btn;
+  background-color: $aiesec-yellow;
+}
+
+.btn-red {
+  @extend %btn;
+  background-color: $aiesec-red;
+}

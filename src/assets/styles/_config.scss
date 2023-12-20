@@ -1,0 +1,35 @@
+// Fonts
+$font-stack: Arial, Helvetica, sans-serif;
+
+// AIESEC Colors
+$aiesec-blue: #037ef3;
+$aiesec-offwhite: #f3f4f7;
+$aiesec-yellow: #ffc845;
+$aiesec-green: #00c16e;
+$aiesec-grey: #caccd1;
+$aiesec-orange: #f48924;
+$aiesec-teal: #0cb9c1;
+$aiesec-black: #52565e;
+$aiesec-red: #f85a40;
+$aiesec-purple: #7552cc;
+
+// Set color to light
+@function set-lighter-color($color, $percentage) {
+  @return lighten($color, $percentage);
+}
+
+// Set text color based on background
+// @function set-text-color($color) {
+//   @if (lightness($color) > 70%) {
+//     @return #333;
+//   } @else {
+//     @return #fff;
+//   }
+// }
+
+// // Set background and text color
+// // Mixin is like a function but it doesnt return anything
+// @mixin set-background($color) {
+//   background-color: $color;
+//   color: set-text-color($color);
+// }
