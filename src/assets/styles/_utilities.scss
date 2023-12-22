@@ -4,9 +4,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 200px;
+  color: $aiesec-offwhite;
 
   h1 {
     margin: 0 20px;
+    padding: 10px 0;
   }
 
   ul {
@@ -14,26 +16,33 @@ nav {
     list-style: none;
   }
 
-  li {
-    padding: 10px;
-  }
-
   a {
     text-decoration: none;
+    padding: 10px;
     color: $aiesec-offwhite;
   }
 
-  a:hover {
-    text-decoration: none;
+  li > a:hover {
+    transition: background-color 0.5s ease;
+    background-color: $aiesec-offwhite;
+    color: $aiesec-blue;
+  }
+
+  li > a.active {
+    background-color: $aiesec-offwhite;
     color: $aiesec-blue;
   }
 }
 
-.container {
+%container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+}
+
+.login-container {
+  @extend %container;
   background: url("../images/login-bg.jpg") no-repeat;
   background-size: cover;
   background-position: center;

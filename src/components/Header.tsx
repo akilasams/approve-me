@@ -1,19 +1,23 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <nav>
-      <h1>ApproveMe</h1>
+      <h1>
+        <Link to="/">ApproveMe</Link>
+      </h1>
       <ul>
         <li>
-          <a href="#">Home</a>
+          <NavLink to="/home">Home</NavLink>
         </li>
         <li>
-          <a href="#">Requests</a>
+          <NavLink to="/new">New Requests</NavLink>
         </li>
         <li>
-          <a href="#">Approved</a>
+          <NavLink to="/review">In Review</NavLink>
         </li>
         <li>
-          <a href="#">Rejected</a>
+          <NavLink to="/approved">Approved</NavLink>
         </li>
       </ul>
     </nav>
