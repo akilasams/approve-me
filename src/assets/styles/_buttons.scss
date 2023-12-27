@@ -7,9 +7,60 @@
   font-size: 15px;
   font-weight: bold;
   color: $aiesec-offwhite;
+  cursor: pointer;
 
   &:hover {
     transform: scale(0.98);
+  }
+}
+
+.btn-switch {
+  @extend %btn;
+  background-color: $aiesec-offwhite;
+  font-size: 12px;
+  color: darken($aiesec-green, 10%);
+  padding: 5px 20px;
+
+  &.left {
+    border-radius: 5px 0 0 5px;
+
+    &.active {
+      background-color: darken($aiesec-green, 10%);
+      color: $aiesec-offwhite;
+    }
+  }
+
+  &.right {
+    border-radius: 0 5px 5px 0;
+
+    &.active {
+      background-color: darken($aiesec-green, 10%);
+      color: $aiesec-offwhite;
+    }
+  }
+}
+
+.btn-action {
+  @extend %btn;
+
+  &.approve {
+    background-color: $aiesec-green;
+    border-radius: 5px 0 0 5px;
+  }
+
+  &.comment {
+    background-color: $aiesec-yellow;
+    border-radius: 0;
+  }
+
+  &.reject {
+    background-color: $aiesec-red;
+    border-radius: 0 5px 5px 0;
+  }
+
+  &.view {
+    background-color: $aiesec-blue;
+    border-radius: 5px;
   }
 }
 

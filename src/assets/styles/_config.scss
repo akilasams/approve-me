@@ -13,9 +13,11 @@ $aiesec-black: #52565e;
 $aiesec-red: #f85a40;
 $aiesec-purple: #7552cc;
 
-// Set color to light
-@function set-lighter-color($color, $percentage) {
-  @return lighten($color, $percentage);
+//Set page background
+@mixin set-page-background($path) {
+  background: url($path) no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 // Set text color based on background

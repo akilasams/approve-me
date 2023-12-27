@@ -6,13 +6,13 @@ import {
 } from "react-router-dom";
 
 import "./App.scss";
-import Login from "./pages/login-page/Login";
+import Login from "./pages/login/Login";
 import SignUp from "./pages/signup-page/SignUp";
 import NewRequests from "./pages/new-requests/NewRequests";
 import Approved from "./pages/approved/Approved";
-import InReview from "./pages/in-review/InReview";
 import Home from "./pages/home/Home";
 import RootLayout from "./layout/RootLayout";
+import Account from "./pages/account/Account";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,8 +21,9 @@ const router = createBrowserRouter(
       <Route path="home" element={<Home />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="new" element={<NewRequests />} />
-      <Route path="review" element={<InReview />} />
       <Route path="approved" element={<Approved />} />
+      <Route path="account" element={<Account />} />
+      <Route path="signup" element={<SignUp />} />
     </Route>
   )
 );

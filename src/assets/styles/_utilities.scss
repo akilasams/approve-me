@@ -1,19 +1,25 @@
 nav {
-  display: flex;
   background-color: $aiesec-blue;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 200px;
   color: $aiesec-offwhite;
+  height: 50px;
+
+  > .site-container {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   h1 {
-    margin: 0 20px;
+    margin: 0 5px 0 20px;
     padding: 10px 0;
   }
 
   ul {
     display: flex;
     list-style: none;
+    position: relative;
+    right: 60px;
   }
 
   a {
@@ -22,33 +28,179 @@ nav {
     color: $aiesec-offwhite;
   }
 
-  li > a:hover {
-    transition: background-color 0.5s ease;
-    background-color: $aiesec-offwhite;
-    color: $aiesec-blue;
+  li {
+    > a:hover {
+      transition: background-color 0.5s ease;
+      background-color: $aiesec-offwhite;
+      color: $aiesec-blue;
+    }
+
+    > a.active {
+      background-color: $aiesec-offwhite;
+      color: $aiesec-blue;
+    }
   }
 
-  li > a.active {
-    background-color: $aiesec-offwhite;
-    color: $aiesec-blue;
+  .logo-container {
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 25px;
+    }
+  }
+
+  .profile-container {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    right: 10px;
+    top: 50%;
+    border-radius: 35px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    &:hover {
+      transition: color 0.2s ease-in;
+      color: $aiesec-grey;
+    }
+  }
+
+  .dropdown-container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    top: 50px;
+    right: 10px;
+    background-color: darken($aiesec-blue, 10%);
+    text-align: left;
+    padding-bottom: 10px;
+
+    > li {
+      padding: 3px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $aiesec-offwhite;
+        color: darken($aiesec-blue, 20%);
+      }
+
+      > a {
+        text-decoration: none;
+        padding: 0;
+
+        &:hover {
+          background-color: $aiesec-offwhite;
+          color: darken($aiesec-blue, 20%);
+        }
+      }
+    }
+
+    > button {
+      width: 20px;
+      position: absolute;
+      right: 9px;
+      background-color: $aiesec-red;
+      border: 0;
+      font-size: 15px;
+      font-weight: bold;
+      color: $aiesec-offwhite;
+      cursor: pointer;
+    }
   }
 }
 
+// Page containers
+.login-page-container {
+  @include set-page-background("../images/login-bg.jpg");
+}
+
+// Generic containers
 %container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  margin: auto;
+  width: 1200px;
 }
 
-.login-container {
+.site-container {
   @extend %container;
-  background: url("../images/login-bg.jpg") no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
-.wrapper {
+.content-container {
+  @extend %container;
+  min-height: 100vh;
+  padding: 10px 50px;
+}
+
+.showcase-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-gap: 3px;
+  padding: 20px 50px;
+  text-align: center;
+
+  .heading {
+    margin-bottom: 10px;
+  }
+
+  .event-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 0 5px;
+  }
+
+  .request-container {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    padding: 0 5px;
+  }
+
+  .view-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+  }
+
+  .event-card {
+    background-color: $aiesec-grey;
+    height: 80px;
+    width: 250px;
+    margin: 2px 1px;
+    border-radius: 2px;
+  }
+
+  .request-card {
+    background-color: $aiesec-grey;
+    height: 100px;
+    width: 300px;
+    margin: 2px 1px;
+    border-radius: 2px;
+  }
+
+  .image-preview {
+    background-color: $aiesec-grey;
+    height: 500px;
+    width: 500px;
+    margin-top: 30px;
+    cursor: pointer;
+  }
+
+  .action-btn-container {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin-top: 10px;
+  }
+}
+
+.login-wrapper {
   width: 420px;
   color: $aiesec-offwhite;
   border-radius: 10px;
@@ -56,10 +208,23 @@ nav {
   border: 2px solid $aiesec-blue;
   backdrop-filter: blur(20px);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-  padding: 30px 40px;
+  padding: 15px 40px 30px 40px;
 
-  h1 {
-    text-align: center;
+  .aiesec-human {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    > img {
+      height: 50px;
+    }
+  }
+
+  .form-switch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
   }
 
   .form-control {
@@ -76,15 +241,44 @@ nav {
       width: 100%;
       height: 100%;
       background: transparent;
-      border: 2px solid set-lighter-color($aiesec-blue, 20%);
+      border: 2px solid lighten($aiesec-blue, 20%);
       outline: none;
       border-radius: 40px;
       font-size: 16px;
       padding: 20px 45px 20px 20px;
+      margin-bottom: 15px;
       color: $aiesec-offwhite;
 
       &::placeholder {
         color: $aiesec-offwhite;
+      }
+
+      &[type="date"] {
+        padding-right: 20px;
+        &::-webkit-calendar-picker-indicator {
+          filter: invert(1);
+        }
+
+        &::-webkit-calendar-picker-indicator:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    select {
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: 2px solid lighten($aiesec-blue, 20%);
+      outline: none;
+      border-radius: 40px;
+      font-size: 16px;
+      padding: 0 40px 0 20px;
+      margin-bottom: 15px;
+      color: $aiesec-offwhite;
+
+      > option {
+        color: #000;
       }
     }
 
@@ -93,7 +287,7 @@ nav {
       position: absolute;
       right: 20px;
       top: 50%;
-      transform: translateY(-50%);
+      transform: translateY(-90%);
     }
 
     button {
@@ -107,7 +301,7 @@ nav {
       color: $aiesec-offwhite;
 
       &:hover {
-        color: set-lighter-color($aiesec-blue, 30%);
+        color: lighten($aiesec-blue, 30%);
       }
     }
   }
@@ -117,4 +311,9 @@ nav {
     justify-content: center;
     font-size: 15px;
   }
+}
+
+.whitespace-10 {
+  width: 100%;
+  height: 20px;
 }
